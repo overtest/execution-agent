@@ -38,15 +38,14 @@ pub struct ProgramExecutionParameters
 
 impl ProgramExecutionParameters
 {
-    pub fn to_limtrac(self) -> limtrac::ExecProgInfo
+    pub fn to_limtrac(&self) -> limtrac::ExecProgInfo
     {
-        let command_args_str: String = self.command_args.join(" ");
         limtrac::ExecProgInfo
         {
-            program_path: CString::new(self.command_name).unwrap().into_raw(),
-            program_args: CString::new(command_args_str).unwrap().into_raw(),
-            working_path: CString::new(self.working_path).unwrap().into_raw(),
-            exec_as_user: CString::new(self.run_as_uname).unwrap().into_raw(),
+            program_path: CString::new(self.command_name.clone()).unwrap().into_raw(),
+            program_args: CString::new(self.command_args.clone().join(" ")).unwrap().into_raw(),
+            working_path: CString::new(self.working_path.clone()).unwrap().into_raw(),
+            exec_as_user: CString::new(self.run_as_uname.clone()).unwrap().into_raw(),
         }
     }
 }
@@ -60,18 +59,17 @@ pub struct StreamsRedirectionOptions
 
 impl StreamsRedirectionOptions
 {
-    pub fn to_limtrac(self) -> limtrac::ExecProgIO
+    pub fn to_limtrac(&self) -> limtrac::ExecProgIO
     {
         let io_redirected: bool = self.input_file_name.eq("")
             && self.output_file_name.eq("");
-        let empty_string: String = "".to_string();
 
         limtrac::ExecProgIO
         {
             io_redirected,
-            io_path_stdin: CString::new(self.input_file_name).unwrap().into_raw(),
-            io_path_stdout: CString::new(self.output_file_name).unwrap().into_raw(),
-            io_path_stderr: CString::new(empty_string).unwrap().into_raw(),
+            io_path_stdin:  CString::new(self.input_file_name.clone()).unwrap().into_raw(),
+            io_path_stdout: CString::new(self.output_file_name.clone()).unwrap().into_raw(),
+            io_path_stderr: CString::new("".to_string()).unwrap().into_raw(),
             io_dup_err_out: true,
         }
     }
@@ -86,7 +84,7 @@ pub struct RuntimeLimitsOptions
 }
 
 impl RuntimeLimitsOptions {
-    pub fn to_limtrac(self) -> limtrac::ExecProgLimits
+    pub fn to_limtrac(&self) -> limtrac::ExecProgLimits
     {
         limtrac::ExecProgLimits
         {
