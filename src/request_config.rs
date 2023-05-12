@@ -16,7 +16,7 @@ impl RequestConfig {
         { Ok(obj) => Ok(obj), Err(_) => Err(()) };
     }
 
-    pub fn get_exec_prog_guard(self) -> limtrac::ExecProgGuard
+    pub fn get_exec_prog_guard(&self) -> limtrac::ExecProgGuard
     {
         limtrac::ExecProgGuard {
             scmp_enabled: true,

@@ -25,7 +25,7 @@ impl ExecutionResult {
         }
     }
 
-    pub fn to_json_string(self) -> Result<String, ()>
+    pub fn to_json_string(&self) -> Result<String, ()>
     {
         return match serde_json::to_string(&self)
         { Ok(res) => Ok(res), Err(_) => Err(()) };

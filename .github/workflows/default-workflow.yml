@@ -24,6 +24,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: --all-features
       - name: Build Rust project
-        run: cargo build --debug
+        run: cargo build
       - name: Run tests on Rust project
         run: cargo test
