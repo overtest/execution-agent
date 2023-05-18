@@ -2,7 +2,7 @@
 
 namespace Sirkadirov.Overtest.Daemon.Submodules.ExecutionAgent.Request;
 
-public sealed class OvertestAgentRequestConfig
+public sealed class ExecutionAgentRequestConfig
 {
     [JsonProperty("prog_exec_params")]
     public ProgramExecutionParameters ExecutionParameters { get; set; }

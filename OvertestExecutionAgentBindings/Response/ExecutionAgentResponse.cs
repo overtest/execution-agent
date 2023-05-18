@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace Sirkadirov.Overtest.Daemon.Submodules.ExecutionAgent.Result;
+namespace Sirkadirov.Overtest.Daemon.Submodules.ExecutionAgent.Response;
 
-public sealed class OvertestAgentExecutionResult
+public sealed class ExecutionAgentResponse
 {
     [JsonProperty("exit_code")]
     public int ExitCode { get; set; }
@@ -19,6 +19,6 @@ public sealed class OvertestAgentExecutionResult
     [JsonProperty("res_usage")]
     public ResourcesUsage ResourcesUsage { get; set; }
     
-    public static OvertestAgentExecutionResult FromJson(string json) =>
-        JsonConvert.DeserializeObject<OvertestAgentExecutionResult>(json);
+    public static ExecutionAgentResponse FromJson(string json) =>
+        JsonConvert.DeserializeObject<ExecutionAgentResponse>(json);
 }

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Sirkadirov.Overtest.Daemon.Submodules.ExecutionAgent.Result;
+namespace Sirkadirov.Overtest.Daemon.Submodules.ExecutionAgent.Response;
 
 public sealed class ResourcesUsage
 {
