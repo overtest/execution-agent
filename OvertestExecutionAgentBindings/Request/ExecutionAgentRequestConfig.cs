@@ -10,7 +10,7 @@ public sealed class ExecutionAgentRequestConfig
     [JsonProperty("streams_redirect")]
     public StreamsRedirectionOptions StreamsRedirection { get; set; }
     
-    [JsonProperty("runtime_limits")]
+    [JsonProperty("proc_limits_info")]
     public RuntimeLimitsOptions RuntimeLimits { get; set; }
 
     public override string ToString() => JsonConvert.SerializeObject(this, Formatting.None);
