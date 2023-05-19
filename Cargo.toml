@@ -1,5 +1,5 @@
 [package]
-name = "overtest-agent"
+name = "execution-agent"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,4 +11,4 @@ nix = "0.26.2"
 limtrac = { path = "limtrac" }
 serde = { version = "1.0.162", features = ["derive"] }
 serde_json = "1.0.96"
-pyo3 = { version = "0.18.3", features = ["auto-initialize"] }
+#pyo3 = { version = "0.18.3", features = ["auto-initialize"] }
