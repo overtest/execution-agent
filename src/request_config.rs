@@ -61,8 +61,8 @@ impl StreamsRedirectionOptions
 {
     pub fn to_limtrac(&self) -> limtrac::ExecProgIO
     {
-        let io_redirected: bool = self.input_file_name.eq("")
-            && self.output_file_name.eq("");
+        let io_redirected: bool = !self.input_file_name.eq("")
+            || !self.output_file_name.eq("");
 
         limtrac::ExecProgIO
         {
