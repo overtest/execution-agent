@@ -13,10 +13,10 @@ impl ExecutionResult {
     pub fn from_limtrac(proc_exec_result: &limtrac::ProcExecResult) -> ExecutionResult
     {
         ExecutionResult {
-            exit_code: 0,
-            exit_sign: 0,
-            is_killed: false,
-            kill_reason: 0,
+            exit_code: proc_exec_result.exit_code,
+            exit_sign: proc_exec_result.exit_sign,
+            is_killed: proc_exec_result.is_killed,
+            kill_reason: proc_exec_result.kill_reason,
             res_usage: ResourcesUsage {
                 real_time: proc_exec_result.res_usage.real_time,
                 proc_time: proc_exec_result.res_usage.proc_time,
